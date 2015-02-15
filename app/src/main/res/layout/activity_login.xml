@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.dan.tute.LoginActivity"
-    android:background="@color/background_teal">
+    android:background="@color/primary">
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usernameField"
-            android:hint="@string/username_login_hint"
+            android:hint="@string/email_hint"
             android:layout_above="@+id/passwordField"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -62,7 +62,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/passwordField"
-            android:hint="@string/password_login_text"
+            android:hint="@string/password_hint"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -74,7 +74,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_button_text"
+        android:text="@string/login_button_label"
         android:id="@+id/loginButton"
         android:layout_below="@+id/editTextLayout"
         android:layout_alignParentLeft="true"
