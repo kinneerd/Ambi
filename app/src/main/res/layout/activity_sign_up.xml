@@ -49,13 +49,11 @@
         android:paddingRight="@dimen/sign_up_your_info_horizontal_padding"
         android:paddingBottom="@dimen/sign_up_your_info_vertical_padding"
         android:background="@android:color/white"
+        android:paddingTop="@dimen/sign_up_your_info_vertical_margin"
         android:layout_above="@+id/yourLoginInfo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/login_vertical_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/sign_up_your_info_vertical_margin">
+        android:layout_alignLeft="@+id/yourLoginInfo"
+        android:layout_alignStart="@+id/yourLoginInfo"
+        android:layout_marginBottom="45dp">
 
         <EditText
             android:layout_width="match_parent"
@@ -93,9 +91,9 @@
         android:text="@string/your_login_info_title"
         android:id="@+id/yourLoginInfo"
         android:layout_above="@+id/yourLoginInfoLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@android:color/white"/>
+        android:layout_alignParentStart="false"
+        android:textColor="@android:color/white"
+        android:layout_alignStart="@id/yourLoginInfoLayout" />
 
     <LinearLayout
         android:id="@+id/yourLoginInfoLayout"
@@ -119,7 +117,7 @@
             android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/emailField"
-            android:hint="@string/email_hint"/>
+            android:hint="@string/edu_email_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -128,6 +126,7 @@
             android:ems="10"
             android:id="@+id/passwordField"
             android:hint="@string/password_create_hint" />
+
     </LinearLayout>
 
     <Button

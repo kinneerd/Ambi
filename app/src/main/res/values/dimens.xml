@@ -10,11 +10,11 @@
     <dimen name="sign_up_your_info_text_vertical_margin">0dp</dimen>
     <dimen name="sign_up_your_info_text_horizontal_padding">0dp</dimen>
 
-    <dimen name="sign_up_your_info_vertical_margin">32dp</dimen>
+    <dimen name="sign_up_your_info_vertical_margin">16dp</dimen>
     <dimen name="sign_up_your_info_horizontal_padding">10dp</dimen>
     <dimen name="sign_up_your_info_vertical_padding">5dp</dimen>
 
-    <dimen name="sign_up_your_login_info_vertical_margin">32dp</dimen>
+    <dimen name="sign_up_your_login_info_vertical_margin">16dp</dimen>
     <dimen name="sign_up_your_login_info_horizontal_padding">10dp</dimen>
-    <dimen name="sign_up_your_login_info_vertical_padding">10dp</dimen>
+    <dimen name="sign_up_your_login_info_vertical_padding">5dp</dimen>
 </resources>

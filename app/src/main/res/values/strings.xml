@@ -19,7 +19,7 @@
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
     <string name="your_login_info_title">Your Log In Information</string>
-    <string name="edu_email_hint">.edu email address</string>
+    <string name="edu_email_hint">Email (.edu address required)</string>
     <string name="password_create_hint">Create a password</string>
 
     <string name="signup_error_message">Please make sure you fill out all fields!</string>
