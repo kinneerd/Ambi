@@ -4,30 +4,37 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 
 public class LoginActivity extends ActionBarActivity {
 
-    protected EditText mEmail;
-    protected EditText mPassword;
-    protected Button mLoginButton;
+    public static final String TAG = LoginActivity.class.getSimpleName();
 
-    protected TextView mSignUpTextView;
+    @InjectView(R.id.emailField) protected TextView mEmail;
+    @InjectView(R.id.passwordField) protected TextView mPassword;
+    @InjectView(R.id.loginButton) protected Button mLoginButton;
+
+    @InjectView(R.id.signUpText) protected TextView mSignUpTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
-
         getSupportActionBar().hide();
+        ButterKnife.inject(this);
 
-        mSignUpTextView = (TextView)findViewById(R.id.signUpText);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

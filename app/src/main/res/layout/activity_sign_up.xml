@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -47,7 +47,6 @@
         android:orientation="vertical"
         android:paddingLeft="@dimen/sign_up_your_info_horizontal_padding"
         android:paddingRight="@dimen/sign_up_your_info_horizontal_padding"
-        android:paddingTop="@dimen/sign_up_your_info_vertical_margin"
         android:paddingBottom="@dimen/sign_up_your_info_vertical_padding"
         android:background="@android:color/white"
         android:layout_above="@+id/yourLoginInfo"
@@ -55,7 +54,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/login_vertical_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin">
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/sign_up_your_info_vertical_margin">
 
         <EditText
             android:layout_width="match_parent"
@@ -65,19 +65,25 @@
             android:id="@+id/nameField"
             android:hint="@string/name_hint" />
 
-        <RadioButton
+        <RadioGroup
+            android:id="@+id/radioGender"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_male"
-            android:id="@+id/genderMaleRadio"
-            android:checked="false" />
+            android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_female"
-            android:id="@+id/genderFemaleRadio"
-            android:checked="false" />
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_male"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_female" />
+
+        </RadioGroup>
 
     </LinearLayout>
 
@@ -105,7 +111,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/login_vertical_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin">
 
         <EditText
