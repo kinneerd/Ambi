@@ -65,19 +65,25 @@
             android:id="@+id/nameField"
             android:hint="@string/name_hint" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_male"
-            android:id="@+id/genderMaleRadio"
-            android:checked="false" />
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/genderGroup">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_female"
-            android:id="@+id/genderFemaleRadio"
-            android:checked="false" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_male"
+                android:id="@+id/genderMaleRadio"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_female"
+                android:id="@+id/genderFemaleRadio"
+                android:checked="false" />
+        </RadioGroup>
 
     </LinearLayout>
 

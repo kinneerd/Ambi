@@ -1,6 +1,7 @@
 package com.dan.tute;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.app.ActionBar;
@@ -22,18 +23,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends ActionBarActivity {
 
     private static final String url_login_user = "http://68.119.36.37/tute/login.php";
 
     Button loginButton;
-    private ProgressDialog pDialog;
+    ProgressDialog pDialog;
 
     JSONParser jsonParser = new JSONParser();
     protected EditText mEmail;
     protected EditText mPassword;
     protected Button mLoginButton;
+
+    protected boolean loginSuccess;
 
     protected TextView mSignUpTextView;
 
@@ -94,6 +98,8 @@ public class LoginActivity extends ActionBarActivity {
             pDialog.setCancelable(true);
             pDialog.show();
 
+            loginSuccess = false;
+
         }
 
         protected String doInBackground(String... args) {
@@ -102,9 +108,6 @@ public class LoginActivity extends ActionBarActivity {
 
             String email = txtEmail.getText().toString();
             String password = txtPassword.getText().toString();
-
-            Log.d("Tute", email);
-            Log.d("Tute", password);
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("email", email));
@@ -116,17 +119,15 @@ public class LoginActivity extends ActionBarActivity {
                 int success = json.getInt("success");
 
                 if(success == 1){
-                    Intent i = getIntent();
-                    pDialog.setMessage("Logged In!");
-                    setResult(100, i);
-                    finish();
+                    //Intent i = getIntent();
+                    loginSuccess = true;
+                    //setResult(100, i);
+                    //finish();
                 }else{
-                    pDialog.setMessage("Failed to log in.");
                 }
-            }catch(JSONException e){
+            }catch(JSONException e) {
                 e.printStackTrace();
             }
-
 
             return null;
         }
@@ -134,6 +135,20 @@ public class LoginActivity extends ActionBarActivity {
 
         protected void onPostExecute(String file_url){
             pDialog.dismiss();
+
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast;
+
+            if(loginSuccess){
+                CharSequence text = "Log in successful!";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }else{
+                CharSequence text = "Log in failed.";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
     }
 }
