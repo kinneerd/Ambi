@@ -32,9 +32,9 @@ import butterknife.InjectView;
 public class SignUpActivity extends ActionBarActivity {
 
     private static final String url_signup_user = "http://68.119.36.37/tute/signup.php";
-    ProgressDialog pDialog;
-
-    JSONParser jsonParser = new JSONParser();
+    protected ProgressDialog pDialog;
+    protected String phpMessage = "";
+    protected JSONParser jsonParser = new JSONParser();
     boolean signupSuccess;
 
     public static final String TAG = SignUpActivity.class.getSimpleName();
@@ -156,6 +156,7 @@ public class SignUpActivity extends ActionBarActivity {
                     setResult(100, i);
                     finish();
                 }else{
+                    phpMessage = json.getString("message");
                 }
             }catch(JSONException e){
                 e.printStackTrace();
@@ -178,7 +179,7 @@ public class SignUpActivity extends ActionBarActivity {
                 toast = Toast.makeText(context, text, duration);
                 toast.show();
             }else{
-                CharSequence text = "Sign up failed.";
+                CharSequence text = phpMessage;
                 toast = Toast.makeText(context, text, duration);
                 toast.show();
             }

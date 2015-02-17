@@ -39,6 +39,8 @@ public class LoginActivity extends ActionBarActivity {
 
     protected boolean loginSuccess;
 
+    protected int verified = 0;
+
     public static final String TAG = LoginActivity.class.getSimpleName();
 
     @InjectView(R.id.emailField) protected TextView mEmail;
@@ -127,6 +129,7 @@ public class LoginActivity extends ActionBarActivity {
                 if(success == 1){
                     //Intent i = getIntent();
                     loginSuccess = true;
+                    verified = json.getInt("verified");
                     //setResult(100, i);
                     //finish();
                 }else{
@@ -147,9 +150,16 @@ public class LoginActivity extends ActionBarActivity {
             Toast toast;
 
             if(loginSuccess){
-                CharSequence text = "Log in successful!";
-                toast = Toast.makeText(context, text, duration);
-                toast.show();
+                if(verified == 1) {
+                    CharSequence text = "Log in successful!";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }else{
+                    CharSequence text = "Please verify your account!";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
+
             }else{
                 CharSequence text = "Log in failed.";
                 toast = Toast.makeText(context, text, duration);
