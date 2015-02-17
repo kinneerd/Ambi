@@ -37,14 +37,15 @@ public class SignUpActivity extends ActionBarActivity {
     protected JSONParser jsonParser = new JSONParser();
     boolean signupSuccess;
 
+
     public static final String TAG = SignUpActivity.class.getSimpleName();
 
     @InjectView(R.id.emailField) protected TextView mEmail;
     @InjectView(R.id.passwordField) protected TextView mPassword;
     @InjectView(R.id.nameField) protected TextView mName;
+    @InjectView(R.id.radioGender) protected RadioGroup mGenderGroup;
+    //@InjectView(R.id.genderID)
 
-    //@InjectView(R.id.genderMaleRadio) protected RadioButton mMale;
-    //@InjectView(R.id.genderFemaleRadio) protected RadioButton mFemale;
     @InjectView(R.id.signupButton) protected Button mSignUpButton;
 
     @Override
@@ -57,13 +58,9 @@ public class SignUpActivity extends ActionBarActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = mName.getText().toString();
-                String password = mPassword.getText().toString();
-                String email = mEmail.getText().toString();
-
-                name = name.trim();
-                password = password.trim();
-                email = email.trim();
+                String name = mName.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
+                String email = mEmail.getText().toString().trim();
 
                 if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
@@ -74,43 +71,13 @@ public class SignUpActivity extends ActionBarActivity {
                     dialog.show();
                 }
                 else {
-                    // Send Verification email
+                    // Success
+                    new StoreUserActivity().execute();
                 }
             }
         });
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_sign_up, menu);
-
-        mSignUpButton = (Button) findViewById(R.id.signupButton);
-
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                new StoreUserActivity().execute();
-            }
-        });
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     class StoreUserActivity extends AsyncTask<String, String, String> {
         protected void onPreExecute(){
             super.onPreExecute();
@@ -125,18 +92,15 @@ public class SignUpActivity extends ActionBarActivity {
         }
 
         protected String doInBackground(String... args) {
-            EditText mEmail = (EditText) findViewById(R.id.emailField);
-            EditText mPassword = (EditText) findViewById(R.id.passwordField);
-            EditText mName = (EditText) findViewById(R.id.nameField);
-            RadioGroup radioGender = (RadioGroup) findViewById(R.id.radioGender);
-            int genderID = radioGender.getCheckedRadioButtonId();
+
+            int genderID = mGenderGroup.getCheckedRadioButtonId();
             RadioButton mGender = (RadioButton) findViewById(genderID);
 
             String gender = (mGender.getText()+"").toLowerCase().charAt(0) + "";
 
-            String email = mEmail.getText().toString();
-            String password = mPassword.getText().toString();
-            String name = mName.getText().toString();
+            String email = mEmail.getText().toString().trim();
+            String password = mPassword.getText().toString().trim();
+            String name = mName.getText().toString().trim();
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("email", email));
@@ -161,8 +125,6 @@ public class SignUpActivity extends ActionBarActivity {
             }catch(JSONException e){
                 e.printStackTrace();
             }
-
-
             return null;
         }
 

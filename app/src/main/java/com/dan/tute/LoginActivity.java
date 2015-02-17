@@ -57,6 +57,12 @@ public class LoginActivity extends ActionBarActivity {
         getSupportActionBar().hide();
         ButterKnife.inject(this);
 
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                new LoadProfileActivity().execute();
+            }
+        });
+
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,37 +70,6 @@ public class LoginActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-
-        mLoginButton = (Button) findViewById(R.id.loginButton);
-
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                new LoadProfileActivity().execute();
-            }
-        });
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     class LoadProfileActivity extends AsyncTask<String, String, String> {
@@ -107,15 +82,12 @@ public class LoginActivity extends ActionBarActivity {
             pDialog.show();
 
             loginSuccess = false;
-
         }
 
         protected String doInBackground(String... args) {
-            EditText txtEmail = (EditText) findViewById(R.id.emailField);
-            EditText txtPassword = (EditText) findViewById(R.id.passwordField);
 
-            String email = txtEmail.getText().toString();
-            String password = txtPassword.getText().toString();
+            String email = mEmail.getText().toString().trim();
+            String password = mPassword.getText().toString().trim();
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("email", email));
@@ -132,12 +104,12 @@ public class LoginActivity extends ActionBarActivity {
                     verified = json.getInt("verified");
                     //setResult(100, i);
                     //finish();
-                }else{
+                }else {
+                    // Failure
                 }
             }catch(JSONException e) {
                 e.printStackTrace();
             }
-
             return null;
         }
 
@@ -159,8 +131,7 @@ public class LoginActivity extends ActionBarActivity {
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-
-            }else{
+            }else {
                 CharSequence text = "Log in failed.";
                 toast = Toast.makeText(context, text, duration);
                 toast.show();
