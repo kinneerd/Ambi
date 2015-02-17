@@ -12,5 +12,12 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="email_hint">Email</string>
     <string name="sign_up_button_label">Sign Up</string>
+    <string name="your_info_title">Your Information</string>
+    <string name="name_hint">First Name</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="your_login_info_title">Your Log In Information</string>
+    <string name="edu_email_hint">.edu email address</string>
+    <string name="password_create_hint">Create a password</string>
 
 </resources>
