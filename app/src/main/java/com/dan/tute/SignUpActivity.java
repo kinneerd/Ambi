@@ -37,7 +37,6 @@ public class SignUpActivity extends ActionBarActivity {
     protected JSONParser jsonParser = new JSONParser();
     boolean signupSuccess;
 
-
     public static final String TAG = SignUpActivity.class.getSimpleName();
 
     @InjectView(R.id.emailField) protected TextView mEmail;
