@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.dan.tute"
+        applicationId "com.triofiddy.tute"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
