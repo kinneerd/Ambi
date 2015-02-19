@@ -53,6 +53,7 @@
         android:layout_above="@+id/yourLoginInfo"
         android:layout_alignLeft="@+id/yourLoginInfo"
         android:layout_alignStart="@+id/yourLoginInfo"
+        android:layout_alignRight="@+id/yourLoginInfoLayout"
         android:layout_marginBottom="45dp">
 
         <EditText
