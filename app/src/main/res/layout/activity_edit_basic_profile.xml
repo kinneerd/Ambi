@@ -9,33 +9,36 @@
 
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         android:ems="10"
         android:id="@+id/editNameField"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="83dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textColorHint="#b4ffffff" />
 
 
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/editEmailField"
-        android:text="Email"
+        android:hint="Email"
         android:layout_alignLeft="@+id/editNameField"
         android:layout_alignStart="@+id/editNameField"
         android:layout_below="@+id/editNameField"
-        android:textColor="@android:color/white" />
+        android:layout_marginTop="40dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#b4ffffff" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
@@ -45,8 +48,9 @@
         android:layout_alignLeft="@+id/editEmailField"
         android:layout_alignStart="@+id/editEmailField"
         android:layout_below="@+id/editEmailField"
+        android:layout_marginTop="40dp"
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:textColorHint="#b4ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,8 +61,9 @@
         android:layout_alignStart="@+id/editPasswordField"
         android:layout_alignRight="@+id/editPasswordField"
         android:layout_alignEnd="@+id/editPasswordField"
+        android:layout_marginTop="40dp"
         android:hint="Major"
-        android:textColorHint="@android:color/white" />
+        android:textColorHint="#b4ffffff" />
 
 
 
