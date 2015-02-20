@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import android.accounts.NetworkErrorException;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -21,12 +22,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 public class JSONParser {
 
@@ -65,7 +60,6 @@ public class JSONParser {
                 String paramString = URLEncodedUtils.format(params, "utf-8");
                 url += "?" + paramString;
                 HttpGet httpGet = new HttpGet(url);
-                //BREAKING HERE FOR GET PRODUCT DETAILS
                 HttpResponse httpResponse = httpClient.execute(httpGet);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
@@ -74,10 +68,11 @@ public class JSONParser {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
-            e.printStackTrace();
+            Log.d("test", "client");
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d("test", "IO");
         }
+
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(

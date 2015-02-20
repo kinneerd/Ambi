@@ -126,6 +126,9 @@ public class LoginActivity extends ActionBarActivity {
                     CharSequence text = "Log in successful!";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
+
+                    Intent intent = new Intent(LoginActivity.this, EditBasicProfile.class);
+                    startActivity(intent);
                 }else{
                     CharSequence text = "Please verify your account!";
                     toast = Toast.makeText(context, text, duration);
