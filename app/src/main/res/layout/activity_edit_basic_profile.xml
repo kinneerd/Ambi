@@ -15,9 +15,9 @@
         android:hint="Name"
         android:ems="10"
         android:id="@+id/editNameField"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/profileImage"
         android:textColor="@android:color/white"
         android:textColorHint="#b4ffffff" />
 
@@ -65,7 +65,31 @@
         android:hint="Major"
         android:textColorHint="#b4ffffff" />
 
+    <ImageView
+        android:id="@+id/profileImage"
+        android:src = "@drawable/defaultPicSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxHeight="100dip"
+        android:maxWidth="250dip"
+        android:minHeight="100dip"
+        android:minWidth="250dip"
+        android:resizeMode="horizontal|vertical"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/button"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/editMajorField"
+        android:layout_centerHorizontal="true" />
+
+    />
 
 
 </RelativeLayout>
