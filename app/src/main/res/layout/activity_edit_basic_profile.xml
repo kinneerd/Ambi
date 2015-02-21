@@ -89,7 +89,17 @@
         android:layout_marginTop="54dp"
         android:hint="Tell us about yourself..."
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"/>
+        android:textColorHint="#b4ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:id="@+id/changePasswordText"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:textColor="@android:color/white"/>
 
 
 </RelativeLayout>
