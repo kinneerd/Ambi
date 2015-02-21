@@ -9,7 +9,7 @@
     <string name="password_hint">Password</string>
     <string name="login_button_label">SIGN IN</string>
     <string name="sign_up_text">Don\'t have an account? Sign up!</string>
-    <string name="subtitle">On-demand Tutoring</string>
+    <string name="subtitle">NEW-AGE TUTORING</string>
 
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="email_hint">Email</string>

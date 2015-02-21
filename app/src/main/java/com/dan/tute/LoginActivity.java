@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -43,6 +46,9 @@ public class LoginActivity extends ActionBarActivity {
 
     public static final String TAG = LoginActivity.class.getSimpleName();
 
+    @InjectView(R.id.title) protected TextView appTitle;
+    @InjectView(R.id.subtitle) protected TextView appSubtitle;
+
     @InjectView(R.id.emailField) protected TextView mEmail;
     @InjectView(R.id.passwordField) protected TextView mPassword;
     @InjectView(R.id.loginButton) protected Button mLoginButton;
@@ -56,6 +62,11 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         ButterKnife.inject(this);
+
+        // Changed font
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Syncopate-Regular.ttf");
+        appTitle.setTypeface(type);
+        appSubtitle.setTypeface(type);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
