@@ -25,6 +25,7 @@
     <string name="signup_error_message">Please make sure you fill out all fields!</string>
     <string name="signup_error_title">Oops!</string>
     <string name="title_activity_edit_basic_profile">EditBasicProfile</string>
+    <string name="title_activity_change_password">ChangePasswordActivity</string>
 
 
 
