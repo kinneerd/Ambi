@@ -1,18 +1,79 @@
 package com.dan.tute;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
 public class EditBasicProfile extends ActionBarActivity {
+
+    private static final String url_edit_tutee = "http://68.119.36.37/tute/edit_tutee_profile.php";
+    private static final String url_load_tutee = "http://68.119.36.37/tute/load_tutee_profile.php";
+    protected boolean editSuccess;
+    protected String phpMessage;
+    protected String currentEmail;
+    protected JSONParser jsonParser = new JSONParser();
+
+    @InjectView(R.id.editBioField) protected TextView mBio;
+    @InjectView(R.id.editNameField) protected TextView mName;
+    @InjectView(R.id.editMajorField) protected TextView mMajor;
+    @InjectView(R.id.editProfileSubmitButton) protected Button mEditProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_basic_profile);
-        getSupportActionBar().hide();
+
+        Intent intent = getIntent();
+        currentEmail = intent.getStringExtra("email");
+        ButterKnife.inject(this);
+
+        mEditProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = mName.getText().toString().trim();
+                String bio = mBio.getText().toString().trim();
+                String major = mMajor.getText().toString().trim();
+
+                if (name.isEmpty() || bio.isEmpty() || major.isEmpty()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EditBasicProfile.this);
+                    builder.setMessage(R.string.signup_error_message)
+                            .setTitle(R.string.signup_error_title)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+                else {
+                    // Success
+                    new UpdateUserActivity().execute();
+                }
+            }
+        });
+
+        new LoadUserInformationActivity().execute();
     }
 
 
@@ -36,5 +97,105 @@ public class EditBasicProfile extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class LoadUserInformationActivity extends AsyncTask<String, String, String> {
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+
+        protected String doInBackground(String... args) {
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("email", currentEmail));
+
+            final JSONObject json = jsonParser.makeHttpRequest(url_load_tutee, "POST", params);
+
+            runOnUiThread(new Runnable() {
+                //
+                @Override
+                public void run() {
+                    int success;
+                    try {
+                        success = json.getInt("success");
+                        if (success == 1) {
+                            mBio.setText(json.getString("bio"));
+                            mMajor.setText(json.getString("major"));
+                            mName.setText(json.getString("name"));
+
+                        } else {
+                            phpMessage = json.getString("message");
+                        }
+                    } catch (JSONException e) {
+                        Log.d("Boogityboo", "bby");
+                    }
+                }
+            });
+            return null;
+        }
+
+
+        protected void onPostExecute(String file_url) {
+
+        }
+    }
+
+    class UpdateUserActivity extends AsyncTask<String, String, String> {
+        protected void onPreExecute(){
+            super.onPreExecute();
+
+            editSuccess = false;
+        }
+
+        protected String doInBackground(String... args) {
+
+
+            String bio = mBio.getText().toString().trim();
+            String name = mName.getText().toString().trim();
+            String major = mMajor.getText().toString().trim();
+
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("bio", bio));
+            params.add(new BasicNameValuePair("name", name));
+            params.add(new BasicNameValuePair("major", major));
+            params.add(new BasicNameValuePair("email", currentEmail));
+
+            JSONObject json = jsonParser.makeHttpRequest(url_edit_tutee, "POST", params);
+
+            try{
+                int success = json.getInt("success");
+
+                if(success == 1){
+                    editSuccess = true;
+
+                    Intent i = getIntent();
+                    setResult(100, i);
+                    finish();
+                }else{
+                    phpMessage = json.getString("message");
+                }
+            }catch(JSONException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+
+        protected void onPostExecute(String file_url){
+
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast;
+
+            if(editSuccess){
+                CharSequence text = "Successfully updated!";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }else{
+                CharSequence text = phpMessage;
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        }
     }
 }

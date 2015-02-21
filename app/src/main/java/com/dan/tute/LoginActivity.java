@@ -36,11 +36,13 @@ public class LoginActivity extends ActionBarActivity {
 
     private static final String url_login_user = "http://68.119.36.37/tute/login.php";
 
-    protected ProgressDialog pDialog;
+    //protected ProgressDialog pDialog;
 
     protected JSONParser jsonParser = new JSONParser();
 
     protected boolean loginSuccess;
+
+    protected String email;
 
     protected int verified = 0;
 
@@ -86,18 +88,18 @@ public class LoginActivity extends ActionBarActivity {
     class LoadProfileActivity extends AsyncTask<String, String, String> {
         protected void onPreExecute(){
             super.onPreExecute();
-            pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Logging in...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
+            //pDialog = new ProgressDialog(LoginActivity.this);
+            //pDialog.setMessage("Logging in...");
+            //pDialog.setIndeterminate(false);
+            //pDialog.setCancelable(true);
+            //pDialog.show();
 
             loginSuccess = false;
         }
 
         protected String doInBackground(String... args) {
 
-            String email = mEmail.getText().toString().trim();
+            email = mEmail.getText().toString().trim();
             String password = mPassword.getText().toString().trim();
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -126,7 +128,7 @@ public class LoginActivity extends ActionBarActivity {
 
 
         protected void onPostExecute(String file_url){
-            pDialog.dismiss();
+            //pDialog.dismiss();
 
             Context context = getApplicationContext();
             int duration = Toast.LENGTH_SHORT;
@@ -139,6 +141,7 @@ public class LoginActivity extends ActionBarActivity {
                     toast.show();
 
                     Intent intent = new Intent(LoginActivity.this, EditBasicProfile.class);
+                    intent.putExtra("email", email);
                     startActivity(intent);
                 }else{
                     CharSequence text = "Please verify your account!";
