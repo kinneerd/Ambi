@@ -36,7 +36,7 @@ public class LoginActivity extends ActionBarActivity {
 
     private static final String url_login_user = "http://68.119.36.37/tute/login.php";
 
-    //protected ProgressDialog pDialog;
+    protected ProgressDialog pDialog;
 
     protected JSONParser jsonParser = new JSONParser();
 
@@ -66,9 +66,9 @@ public class LoginActivity extends ActionBarActivity {
         ButterKnife.inject(this);
 
         // Changed font
-        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Syncopate-Regular.ttf");
-        appTitle.setTypeface(type);
-        appSubtitle.setTypeface(type);
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Syncopate-Bold.ttf");
+        //appTitle.setTypeface(type);
+        //appSubtitle.setTypeface(type);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -88,11 +88,11 @@ public class LoginActivity extends ActionBarActivity {
     class LoadProfileActivity extends AsyncTask<String, String, String> {
         protected void onPreExecute(){
             super.onPreExecute();
-            //pDialog = new ProgressDialog(LoginActivity.this);
-            //pDialog.setMessage("Logging in...");
-            //pDialog.setIndeterminate(false);
-            //pDialog.setCancelable(true);
-            //pDialog.show();
+            pDialog = new ProgressDialog(LoginActivity.this);
+            pDialog.setMessage("Logging in...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
 
             loginSuccess = false;
         }

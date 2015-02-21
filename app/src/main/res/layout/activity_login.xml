@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ambi"
+        android:text="Ambi"
         android:id="@+id/title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
