@@ -15,11 +15,12 @@
         android:hint="Name"
         android:ems="10"
         android:id="@+id/editNameField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/profileImage"
+        android:layout_marginTop="32dp"
         android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff" />
+        android:textColorHint="#b4ffffff"
+        android:layout_below="@+id/editEmailField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 
@@ -30,44 +31,26 @@
         android:ems="10"
         android:id="@+id/editEmailField"
         android:hint="Email"
-        android:layout_alignLeft="@+id/editNameField"
-        android:layout_alignStart="@+id/editNameField"
-        android:layout_below="@+id/editNameField"
-        android:layout_marginTop="40dp"
         android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff" />
+        android:textColorHint="#b4ffffff"
+        android:layout_below="@+id/profileImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editPasswordField"
-        android:hint="Update Password"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editEmailField"
-        android:layout_alignStart="@+id/editEmailField"
-        android:layout_below="@+id/editEmailField"
-        android:layout_marginTop="40dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/editMajorField"
-        android:layout_below="@+id/editPasswordField"
-        android:layout_alignLeft="@+id/editPasswordField"
-        android:layout_alignStart="@+id/editPasswordField"
-        android:layout_alignRight="@+id/editPasswordField"
-        android:layout_alignEnd="@+id/editPasswordField"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="38dp"
         android:hint="Major"
-        android:textColorHint="#b4ffffff" />
+        android:textColorHint="#b4ffffff"
+        android:layout_below="@+id/editNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/profileImage"
-        android:src = "@drawable/defaultPicSmall"
+        android:src = "@drawable/defaltsmallpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -85,11 +68,9 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/button"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/editMajorField"
-        android:layout_centerHorizontal="true" />
-
-    />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
