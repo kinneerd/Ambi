@@ -66,7 +66,7 @@ public class LoginActivity extends ActionBarActivity {
         ButterKnife.inject(this);
 
         // Changed font
-        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Syncopate-Regular.ttf");
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Roboto-Light.ttf");
         appTitle.setTypeface(type);
         appSubtitle.setTypeface(type);
 
