@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class SignUpActivity extends ActionBarActivity {
 
     public static final String TAG = SignUpActivity.class.getSimpleName();
 
+    @InjectView(R.id.title) protected TextView appTitle;
+    @InjectView(R.id.subtitle) protected TextView appSubtitle;
+
     @InjectView(R.id.emailField) protected TextView mEmail;
     @InjectView(R.id.passwordField) protected TextView mPassword;
     @InjectView(R.id.nameField) protected TextView mName;
@@ -53,6 +57,11 @@ public class SignUpActivity extends ActionBarActivity {
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().hide();
         ButterKnife.inject(this);
+
+        // Changed font
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Roboto-Light.ttf");
+        appTitle.setTypeface(type);
+        appSubtitle.setTypeface(type);
 
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
