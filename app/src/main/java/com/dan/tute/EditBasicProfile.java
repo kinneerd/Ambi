@@ -122,9 +122,15 @@ public class EditBasicProfile extends ActionBarActivity {
                     try {
                         success = json.getInt("success");
                         if (success == 1) {
-                            mBio.setText(json.getString("bio"));
-                            mMajor.setText(json.getString("major"));
-                            mName.setText(json.getString("name"));
+                            if(!json.getString("bio").equals("null")) {
+                                mBio.setText(json.getString("bio"));
+                            }
+                            if(!json.getString("major").equals("null")) {
+                                mMajor.setText(json.getString("major"));
+                            }
+                            if(!json.getString("name").equals("null")) {
+                                mName.setText(json.getString("name"));
+                            }
 
                         } else {
                             phpMessage = json.getString("message");
