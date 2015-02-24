@@ -109,19 +109,27 @@ public class LoginActivity extends ActionBarActivity {
             JSONObject json = jsonParser.makeHttpRequest(url_login_user, "POST", params);
 
             try{
-                int success = json.getInt("success");
+                if(json != null) {
+                    int success = json.getInt("success");
 
-                if(success == 1){
-                    //Intent i = getIntent();
-                    loginSuccess = true;
-                    verified = json.getInt("verified");
-                    //setResult(100, i);
-                    //finish();
+                    if (success == 1) {
+                        //Intent i = getIntent();
+                        loginSuccess = true;
+                        verified = json.getInt("verified");
+                        //setResult(100, i);
+                        //finish();
+                    }else {
+                        // Failure
+                    }
                 }else {
-                    // Failure
                 }
             }catch(JSONException e) {
-                e.printStackTrace();
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast;
+                CharSequence text = "Error! Couldn't connect to server!";
+                toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
             return null;
         }
