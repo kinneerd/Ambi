@@ -40,6 +40,7 @@ public class EditBasicProfile extends ActionBarActivity {
     @InjectView(R.id.editBioField) protected TextView mBio;
     @InjectView(R.id.editNameField) protected TextView mName;
     @InjectView(R.id.editMajorField) protected TextView mMajor;
+    @InjectView(R.id.editEmailField) protected TextView mEmail;
     @InjectView(R.id.editProfileSubmitButton) protected Button mEditProfileButton;
 
     @Override
@@ -50,6 +51,8 @@ public class EditBasicProfile extends ActionBarActivity {
         Intent intent = getIntent();
         currentEmail = intent.getStringExtra("email");
         ButterKnife.inject(this);
+
+        mEmail.setText(currentEmail);
 
         mEditProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
