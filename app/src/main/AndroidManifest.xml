@@ -33,15 +33,19 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/title_activity_sign_up" >
+            android:label="@string/title_activity_sign_up"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginActivity">
         </activity>
         <activity
             android:name=".EditBasicProfile"
-            android:label="@string/title_activity_edit_basic_profile" >
+            android:label="@string/title_activity_edit_basic_profile"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ChangePasswordActivity"
-            android:label="@string/title_activity_change_password" >
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
