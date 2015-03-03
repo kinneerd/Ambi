@@ -54,7 +54,8 @@
             android:id="@+id/emailField"
             android:hint="@string/email_hint"
             android:textColorHint="@color/light_gray"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:layout_width="match_parent"
