@@ -50,6 +50,13 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        switch(id) {
+            case R.id.action_logout:
+                SessionManager.clearUserSharedPreferences(getApplicationContext());
+                navigateToLogin();
+                break;
+        }
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;

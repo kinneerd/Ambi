@@ -35,4 +35,10 @@ public class SessionManager {
     public static boolean getUserLoggedInStatus(Context ctx) {
         return getSharedPreferences(ctx).getBoolean(PREF_USER_LOGGEDIN_STATUS, false);
     }
+
+    public static void clearUserSharedPreferences(Context ctx) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.clear();
+        editor.commit();
+    }
 }
