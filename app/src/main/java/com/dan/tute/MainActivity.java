@@ -11,9 +11,6 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    // Session Manager Class
-    SessionManager session;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
