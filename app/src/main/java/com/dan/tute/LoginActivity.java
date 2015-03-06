@@ -4,8 +4,10 @@ import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,19 +36,16 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends ActionBarActivity {
 
+    public static final String TAG = LoginActivity.class.getSimpleName();
+
     private static final String url_login_user = "http://68.119.36.37/tute/login.php";
 
     //protected ProgressDialog pDialog;
 
     protected JSONParser jsonParser = new JSONParser();
-
     protected boolean loginSuccess;
-
     protected String email;
-
     protected int verified = 0;
-
-    public static final String TAG = LoginActivity.class.getSimpleName();
 
     @InjectView(R.id.title) protected TextView appTitle;
     @InjectView(R.id.subtitle) protected TextView appSubtitle;
@@ -122,6 +121,7 @@ public class LoginActivity extends ActionBarActivity {
                         // Failure
                     }
                 }else {
+                    // Failure
                 }
             }catch(JSONException e) {
                 Context context = getApplicationContext();
@@ -134,7 +134,6 @@ public class LoginActivity extends ActionBarActivity {
             return null;
         }
 
-
         protected void onPostExecute(String file_url){
             //pDialog.dismiss();
 
@@ -144,6 +143,10 @@ public class LoginActivity extends ActionBarActivity {
 
             if(loginSuccess){
                 if(verified == 1) {
+                    // Save login in SharedPreferences
+                    SessionManager.setLoggedInUserEmail(getApplicationContext(), email);
+                    SessionManager.setUserLoggedInStatus(getApplicationContext(), true);
+
                     CharSequence text = "Log in successful!";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();

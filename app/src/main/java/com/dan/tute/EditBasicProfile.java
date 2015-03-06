@@ -158,7 +158,6 @@ public class EditBasicProfile extends ActionBarActivity {
 
         protected String doInBackground(String... args) {
 
-
             String bio = mBio.getText().toString().trim();
             String name = mName.getText().toString().trim();
             String major = mMajor.getText().toString().trim();

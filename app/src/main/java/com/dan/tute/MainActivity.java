@@ -5,16 +5,30 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    // Session Manager Class
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navigateToLogin();
+        // Check if user is logged in
+        if(SessionManager.getUserLoggedInStatus(getApplicationContext())) {
+            String email = SessionManager.getLoggedInEmailUser(getApplicationContext());
+            Intent intent = new Intent(getApplicationContext(), EditBasicProfile.class);
+            intent.putExtra("email", email);
+            startActivity(intent);
+        }else {
+            // Not logged in
+            navigateToLogin();
+        }
     }
 
     private void navigateToLogin() {
