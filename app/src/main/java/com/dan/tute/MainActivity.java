@@ -5,18 +5,55 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    @InjectView(R.id.create_request) protected TextView mCreate_Request;
+    @InjectView(R.id.search_tutor) protected TextView mSearch_tutor;
+    @InjectView(R.id.edit_profile) protected TextView mEdit_Profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setupUser();
+        ButterKnife.inject(this);
+
+
+        // request button listener
+        mCreate_Request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),RequestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mSearch_tutor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mEdit_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),EditBasicProfile.class);
+                String user_email = SessionManager.getLoggedInEmailUser(getApplicationContext());
+                intent.putExtra("email",user_email);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void navigateToLogin() {
