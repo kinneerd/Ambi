@@ -16,16 +16,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Check if user is logged in
-        if(SessionManager.getUserLoggedInStatus(getApplicationContext())) {
-            String email = SessionManager.getLoggedInEmailUser(getApplicationContext());
-            Intent intent = new Intent(getApplicationContext(), EditBasicProfile.class);
-            intent.putExtra("email", email);
-            startActivity(intent);
-        }else {
-            // Not logged in
-            navigateToLogin();
-        }
+        setupUser();
     }
 
     private void navigateToLogin() {
@@ -35,6 +26,21 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    /*
+    Uses SessionManager to check whether user is currently logged in
+    Navigates to appropriate screen
+     */
+    private void setupUser() {
+        if(SessionManager.getUserLoggedInStatus(getApplicationContext())) {
+            String email = SessionManager.getLoggedInEmailUser(getApplicationContext());
+            //Intent intent = new Intent(getApplicationContext(), EditBasicProfile.class);
+            //intent.putExtra("email", email);
+            //startActivity(intent);
+        }else {
+            // Not logged in
+            navigateToLogin();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

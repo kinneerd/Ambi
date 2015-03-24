@@ -155,5 +155,4 @@ public class SignUpActivity extends ActionBarActivity {
             }
         }
     }
-
 }
