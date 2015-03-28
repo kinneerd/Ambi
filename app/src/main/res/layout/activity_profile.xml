@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context="com.dan.tute.ProfileActivity"
+                android:background="@color/primary">
+
+    <ImageView
+        android:id="@+id/viewProfileImage"
+        android:src = "@drawable/defaultsmallpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxHeight="100dip"
+        android:maxWidth="250dip"
+        android:minHeight="100dip"
+        android:minWidth="250dip"
+        android:resizeMode="horizontal|vertical"
+        android:contentDescription="@string/default_profile_image"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_below="@+id/viewProfileImage"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Email:"
+        android:id="@+id/profEmailTag"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ratingBar"
+        android:layout_alignLeft="@+id/ratingBar"
+        android:layout_alignStart="@+id/ratingBar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/profEmailAddress"
+        android:text="@string/email_placeholder"
+        android:textColor="@android:color/white"
+        android:textColorHint="#b4ffffff"
+        android:gravity="left"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ratingBar"
+        android:layout_toRightOf="@+id/profEmailTag"
+        android:layout_toEndOf="@+id/profEmailTag"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Major:"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/profEmailTag"
+        android:layout_alignStart="@+id/profEmailTag"
+        android:id="@+id/profMajorTag"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/profMajor"
+        android:text="Computer Science"
+        android:textColor="@android:color/white"
+        android:textColorHint="#b4ffffff"
+        android:gravity="left"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/profMajorTag"
+        android:layout_toRightOf="@+id/profMajorTag"
+        android:layout_toEndOf="@+id/profMajorTag"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/profDesc"
+        android:text="@string/filler"
+        android:textColor="@android:color/white"
+        android:textColorHint="#b4ffffff"
+        android:gravity="left"
+        android:layout_below="@+id/profMajorTag"
+        android:layout_marginTop="29dp"
+        android:layout_alignLeft="@+id/profMajorTag"
+        android:layout_alignStart="@+id/profMajorTag"
+        android:layout_alignRight="@+id/profMajor"
+        android:layout_alignEnd="@+id/profMajor"/>
+
+
+</RelativeLayout>

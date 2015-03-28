@@ -50,5 +50,10 @@
     <string name = "default_profile_image">default profile image</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_request">RequestActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+// DESCRIPTION
+    <string name = "filler">I am the best at what I do. I am the best snowboarder, slackliner, and rock climber you
+    will ever meet. </string>
 
 </resources>
