@@ -14,6 +14,7 @@ import butterknife.InjectView;
 
 public class MainActivity extends ActionBarActivity {
 
+
     @InjectView(R.id.create_request) protected TextView mCreate_Request;
     @InjectView(R.id.search_tutor) protected TextView mSearch_tutor;
     @InjectView(R.id.edit_profile) protected TextView mEdit_Profile;
@@ -24,7 +25,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         setupUser();
         ButterKnife.inject(this);
-
 
         // request button listener
         mCreate_Request.setOnClickListener(new View.OnClickListener() {

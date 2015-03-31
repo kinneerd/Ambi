@@ -152,7 +152,6 @@ public class LoginActivity extends ActionBarActivity {
                     toast.show();
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("email", email);
                     startActivity(intent);
                 }else{
                     CharSequence text = "Please verify your account!";

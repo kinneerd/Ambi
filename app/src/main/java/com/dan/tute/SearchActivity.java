@@ -1,15 +1,19 @@
 package com.dan.tute;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.dan.tute.R;
 
@@ -23,20 +27,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 public class SearchActivity extends ListActivity {
 
     protected String url_load_tutors = "http://68.119.36.37/tute/requestTutorList.php";
 
     protected ArrayList<HashMap<String,String>> tutors = new ArrayList<HashMap<String,String>>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+
         new LoadTutorsInformation().execute();
 
         ListView lv = getListView();
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String emailClicked = ((TextView) view.findViewById(R.id.email)).getText().toString();
+
+                Intent in = new Intent(getApplicationContext(), ProfileActivity.class);
+                in.putExtra("email", emailClicked);
+
+                startActivityForResult(in, 100);
+            }
+        });
 
     }
 

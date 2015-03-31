@@ -47,7 +47,8 @@ public class EditBasicProfile extends ActionBarActivity {
         setContentView(R.layout.activity_edit_basic_profile);
 
         Intent intent = getIntent();
-        currentEmail = intent.getStringExtra("email");
+        //currentEmail = intent.getStringExtra("email");
+        currentEmail = SessionManager.getLoggedInEmailUser(getApplicationContext());
         ButterKnife.inject(this);
 
         mEmail.setText(currentEmail);

@@ -71,10 +71,11 @@
         android:maxLines="1"
         android:scrollHorizontally="true"
         android:text="Major:"
+        android:id="@+id/profMajorTag"
+        android:layout_alignWithParentIfMissing="false"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/profEmailTag"
-        android:layout_alignStart="@+id/profEmailTag"
-        android:id="@+id/profMajorTag"/>
+        android:layout_alignStart="@+id/profEmailTag" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,6 +106,17 @@
         android:layout_alignStart="@+id/profMajorTag"
         android:layout_alignRight="@+id/profMajor"
         android:layout_alignEnd="@+id/profMajor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send them a request!"
+        android:id="@+id/sendEmailText"
+        android:layout_below="@+id/profDesc"
+        android:layout_toRightOf="@+id/profMajorTag"
+        android:layout_toEndOf="@+id/profMajorTag"
+        android:layout_marginTop="43dp"
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>
