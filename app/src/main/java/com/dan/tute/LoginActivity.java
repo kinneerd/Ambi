@@ -151,7 +151,7 @@ public class LoginActivity extends ActionBarActivity {
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    Intent intent = new Intent(LoginActivity.this, EditBasicProfile.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }else{
