@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class LoginActivity extends ActionBarActivity {
     protected String email;
     protected int verified = 0;
 
+    @InjectView(R.id.progressBar)protected ProgressBar mProgressBar;
     @InjectView(R.id.title) protected TextView appTitle;
     @InjectView(R.id.subtitle) protected TextView appSubtitle;
 
@@ -63,6 +65,7 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         ButterKnife.inject(this);
+        mProgressBar.setVisibility(View.INVISIBLE);
 
         // Changed font
         Typeface type = Typeface.createFromAsset(this.getAssets(), "fonts/Roboto-Light.ttf");
@@ -72,6 +75,7 @@ public class LoginActivity extends ActionBarActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 new LoadProfileActivity().execute();
+
             }
         });
 
@@ -84,9 +88,21 @@ public class LoginActivity extends ActionBarActivity {
         });
     }
 
+    private void toggleRefresh() {
+        if(mProgressBar.getVisibility() == View.INVISIBLE) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            //mRefreshImageView.setVisibility(View.INVISIBLE);
+        }
+        else {
+            mProgressBar.setVisibility(View.INVISIBLE);
+            //mRefreshImageView.setVisibility(View.VISIBLE);
+        }
+    }
+
     class LoadProfileActivity extends AsyncTask<String, String, String> {
         protected void onPreExecute(){
             super.onPreExecute();
+            toggleRefresh();
             //pDialog = new ProgressDialog(LoginActivity.this);
             //pDialog.setMessage("Logging in...");
             //pDialog.setIndeterminate(false);
@@ -150,18 +166,24 @@ public class LoginActivity extends ActionBarActivity {
                     CharSequence text = "Log in successful!";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    toggleRefresh();
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    // Prevent backtracking to LoginActivity
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }else{
                     CharSequence text = "Please verify your account!";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    toggleRefresh();
                 }
             }else {
                 CharSequence text = "Log in failed.";
                 toast = Toast.makeText(context, text, duration);
                 toast.show();
+                toggleRefresh();
             }
         }
     }
