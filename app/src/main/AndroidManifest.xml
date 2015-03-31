@@ -54,6 +54,10 @@
             android:name=".RequestActivity"
             android:label="@string/title_activity_request" >
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
     </application>
 
 </manifest>

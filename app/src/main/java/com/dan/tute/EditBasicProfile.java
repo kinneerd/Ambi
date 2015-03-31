@@ -1,7 +1,6 @@
 package com.dan.tute;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +38,7 @@ public class EditBasicProfile extends ActionBarActivity {
     @InjectView(R.id.editBioField) protected TextView mBio;
     @InjectView(R.id.editNameField) protected TextView mName;
     @InjectView(R.id.editMajorField) protected TextView mMajor;
-    @InjectView(R.id.editEmailField) protected TextView mEmail;
+    @InjectView(R.id.profEmailAddress) protected TextView mEmail;
     @InjectView(R.id.editProfileSubmitButton) protected Button mEditProfileButton;
 
     @Override
