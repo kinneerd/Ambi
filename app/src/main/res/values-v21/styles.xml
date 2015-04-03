@@ -1,7 +1,7 @@
 <resources>
 
     <style name="AppTheme" parent="AppTheme.Base">
-        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:statusBarColor">@color/ColorPrimaryDark</item>
     </style>
 
 </resources>

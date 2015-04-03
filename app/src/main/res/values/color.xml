@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#009688</color>
-    <color name="primary_dark">#004d40</color>
+    <color name="ColorPrimary">#009688</color>
+    <color name="ColorPrimaryDark">#004d40</color>
     <color name="accent">#4db6ac</color>
     <color name="light_teal_button">#80CBC4</color>
     <color name="pressed_teal_button">#4DB6AC</color>
     <color name="text_color">#004D40</color>
     <color name="light_gray">#bbbbbb</color>
-
 </resources>

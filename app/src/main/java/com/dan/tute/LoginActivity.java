@@ -63,7 +63,7 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         ButterKnife.inject(this);
         mProgressBar.setVisibility(View.INVISIBLE);
 

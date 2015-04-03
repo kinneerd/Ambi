@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,13 +21,15 @@ public class MainActivity extends ActionBarActivity {
     @InjectView(R.id.create_request) protected TextView mCreate_Request;
     @InjectView(R.id.search_tutor) protected TextView mSearch_tutor;
     @InjectView(R.id.edit_profile) protected TextView mEdit_Profile;
+    @InjectView(R.id.tool_bar) protected Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupUser();
         ButterKnife.inject(this);
+        setSupportActionBar(toolbar);   // Setting toolbar as the ActionBar with setSupportActionBar() call
+        setupUser();
 
         // request button listener
         mCreate_Request.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +57,6 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void navigateToLogin() {
