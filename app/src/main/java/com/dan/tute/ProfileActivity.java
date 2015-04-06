@@ -39,7 +39,7 @@ public class ProfileActivity extends ActionBarActivity {
     @InjectView(R.id.profMajor) protected TextView mMajor;
     @InjectView(R.id.profDesc) protected TextView mDesc;
     @InjectView(R.id.ratingBar) protected RatingBar mRating;
-    @InjectView(R.id.sendEmailText) protected TextView mSendEmail;
+    @InjectView(R.id.sendEmailIcon) protected TextView mSendEmail;
 
     protected JSONParser jsonParser;
 
