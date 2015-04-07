@@ -32,7 +32,7 @@ import butterknife.InjectView;
 
 public class SignUpActivity extends ActionBarActivity {
 
-    private static final String url_signup_user = "http://68.119.36.37/tute/signup.php";
+    private static final String url_signup_user = "http://68.119.36.255/tute/signup.php";
     protected ProgressDialog pDialog;
     protected String phpMessage = "";
     protected JSONParser jsonParser = new JSONParser();

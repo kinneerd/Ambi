@@ -39,7 +39,7 @@ public class LoginActivity extends ActionBarActivity {
 
     public static final String TAG = LoginActivity.class.getSimpleName();
 
-    private static final String url_login_user = "http://68.119.36.37/tute/login.php";
+    private static final String url_login_user = "http://68.119.36.255/tute/login.php";
 
     //protected ProgressDialog pDialog;
 

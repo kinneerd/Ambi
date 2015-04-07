@@ -1,15 +1,19 @@
 package com.dan.tute;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +38,8 @@ public class ProfileActivity extends ActionBarActivity {
 
     private String message;
 
-    private String url_load_tutor_profile = "http://68.119.36.37/tute/load_tutor_profile.php";
-    private String url_send_request = "http://68.119.36.37/tute/requestEmailer.php";
+    private String url_load_tutor_profile = "http://68.119.36.255/tute/load_tutor_profile.php";
+    private String url_send_request = "http://68.119.36.255/tute/requestEmailer.php";
 
     @InjectView(R.id.profEmailAddress) protected TextView mEmail;
     @InjectView(R.id.profMajor) protected TextView mMajor;
@@ -87,6 +91,7 @@ public class ProfileActivity extends ActionBarActivity {
         // Set up the buttons
         builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
             @Override
+
             public void onClick(DialogInterface dialog, int which) {
                 message = input.getText().toString();
 
