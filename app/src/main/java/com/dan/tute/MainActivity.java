@@ -21,14 +21,14 @@ public class MainActivity extends ActionBarActivity {
     @InjectView(R.id.create_request) protected TextView mCreate_Request;
     @InjectView(R.id.search_tutor) protected TextView mSearch_tutor;
     @InjectView(R.id.edit_profile) protected TextView mEdit_Profile;
-    @InjectView(R.id.tool_bar) protected Toolbar toolbar;
+    //@InjectView(R.id.tool_bar) protected Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-        setSupportActionBar(toolbar);   // Setting toolbar as the ActionBar with setSupportActionBar() call
+      //  setSupportActionBar(toolbar);   // Setting toolbar as the ActionBar with setSupportActionBar() call
         setupUser();
 
         // request button listener
