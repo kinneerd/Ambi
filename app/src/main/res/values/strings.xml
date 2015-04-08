@@ -56,5 +56,6 @@
     <string name = "filler">I am the best at what I do. I am the best snowboarder, slackliner, and rock climber you
     will ever meet. </string>
     <string name="title_activity_messages">MessagesActivity</string>
+    <string name="title_activity_sign_up_tutor">SignUpTutorActivity</string>
 
 </resources>
