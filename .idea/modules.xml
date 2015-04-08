@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ambi.iml" filepath="$PROJECT_DIR$/Ambi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tute.iml" filepath="$PROJECT_DIR$/Tute.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Ämbi.iml" filepath="$PROJECT_DIR$/Ämbi.iml" />
     </modules>
   </component>
 </project>

@@ -32,7 +32,7 @@ import butterknife.InjectView;
 
 public class SearchActivity extends ListActivity {
 
-    protected String url_load_tutors = "http://68.119.36.37/tute/requestTutorList.php";
+    protected String url_load_tutors = "http://68.119.36.255/tute/requestTutorList.php";
 
     protected ArrayList<HashMap<String,String>> tutors = new ArrayList<HashMap<String,String>>();
 

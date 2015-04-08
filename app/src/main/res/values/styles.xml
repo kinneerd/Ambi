@@ -6,4 +6,31 @@
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
     </style>
 
+    <!-- Rating bar -->
+
+    <style name="smallRatingBar" parent="@android:style/Widget.RatingBar">
+
+    </style>
+
+    <!--Tutor sign up-->
+
+    <style name="signUpSheet">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="signUpSheetEdits">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">200dp</item>
+    </style>
+
+    <style name="signUpBotton">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">90dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@android:color/holo_blue_bright</item>
+    </style>
+
 </resources>

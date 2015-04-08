@@ -26,97 +26,119 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
+    <!-- Name Tag -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:text="Dan Kinneer"
+        android:id="@+id/profNameTag"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/viewProfileImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="kinneerd@appstate.edu"
+        android:id="@+id/profEmailAddress"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/ratingBar"
+        android:layout_alignStart="@+id/viewProfileImage"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Email:"
+        android:textColor="@android:color/white"
+        android:id="@+id/emailLabel"
+        android:layout_below="@id/ratingBar"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Computer Science"
+        android:id="@+id/profMajor"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/profEmailAddress"
+        android:layout_alignStart="@+id/viewProfileImage"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Major:"
+        android:textColor="@android:color/white"
+        android:id="@+id/majorLabel"
+        android:layout_below="@+id/emailLabel"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="$3.50"
+        android:id="@+id/profPrice"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/profMajor"
+        android:layout_alignStart="@+id/viewProfileImage"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Price:"
+        android:textColor="@android:color/white"
+        android:id="@+id/priceLabel"
+        android:layout_below="@+id/majorLabel"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"/>
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
-        android:layout_below="@+id/viewProfileImage"
+        android:layout_below="@+id/profNameTag"
         android:layout_centerHorizontal="true"/>
 
-
-    <TextView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:scrollHorizontally="true"
-        android:text="Email:"
-        android:id="@+id/profEmailTag"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/ratingBar"
-        android:layout_alignLeft="@+id/ratingBar"
-        android:layout_alignStart="@+id/ratingBar"/>
+        android:id="@+id/sendEmailIcon"
+        android:background="@color/ColorPrimary"
+        android:layout_marginTop="90dp"
+        android:layout_toRightOf="@+id/viewProfileImage"
+        android:layout_toEndOf="@+id/viewProfileImage"
+        android:layout_marginLeft="20dp"/>
+        //android:src="@drawable/ic_action"
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/profEmailAddress"
-        android:text="@string/email_placeholder"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="This is where a short discription will be located"
         android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff"
-        android:gravity="left"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/ratingBar"
-        android:layout_toRightOf="@+id/profEmailTag"
-        android:layout_toEndOf="@+id/profEmailTag"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:scrollHorizontally="true"
-        android:text="Major:"
-        android:id="@+id/profMajorTag"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/profEmailTag"
-        android:layout_alignStart="@+id/profEmailTag" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/profMajor"
-        android:text="Computer Science"
-        android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff"
-        android:gravity="left"
-        android:layout_marginLeft="5dp"
-        android:layout_alignTop="@+id/profMajorTag"
-        android:layout_toRightOf="@+id/profMajorTag"
-        android:layout_toEndOf="@+id/profMajorTag"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
         android:id="@+id/profDesc"
-        android:text="@string/filler"
-        android:textColor="@android:color/white"
-        android:textColorHint="#b4ffffff"
-        android:gravity="left"
-        android:layout_below="@+id/profMajorTag"
-        android:layout_marginTop="29dp"
-        android:layout_alignLeft="@+id/profMajorTag"
-        android:layout_alignStart="@+id/profMajorTag"
-        android:layout_alignRight="@+id/profMajor"
-        android:layout_alignEnd="@+id/profMajor"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send them a request!"
-        android:id="@+id/sendEmailText"
-        android:layout_below="@+id/profDesc"
-        android:layout_toRightOf="@+id/profMajorTag"
-        android:layout_toEndOf="@+id/profMajorTag"
-        android:layout_marginTop="43dp"
-        android:textColor="@android:color/white" />
+        android:layout_below="@+id/priceLabel"
+        android:gravity="center"
+        android:layout_marginTop="30dp"/>
 
 
 </RelativeLayout>

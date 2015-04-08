@@ -5,7 +5,7 @@
 
 
 //SIGN IN PAGE
-    <string name="app_name">Ambi</string>
+    <string name="app_name">Ämbi</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="password_hint">Password</string>
@@ -55,5 +55,7 @@
 // DESCRIPTION
     <string name = "filler">I am the best at what I do. I am the best snowboarder, slackliner, and rock climber you
     will ever meet. </string>
+    <string name="title_activity_messages">MessagesActivity</string>
+    <string name="title_activity_sign_up_tutor">SignUpTutorActivity</string>
 
 </resources>

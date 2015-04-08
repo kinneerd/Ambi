@@ -28,8 +28,8 @@ import butterknife.InjectView;
 
 public class EditBasicProfile extends ActionBarActivity {
 
-    private static final String url_edit_tutee = "http://68.119.36.37/tute/edit_tutee_profile.php";
-    private static final String url_load_tutee = "http://68.119.36.37/tute/load_tutee_profile.php";
+    private static final String url_edit_tutee = "http://68.119.36.255/tute/edit_tutee_profile.php";
+    private static final String url_load_tutee = "http://68.119.36.255/tute/load_tutee_profile.php";
     protected boolean editSuccess;
     protected String phpMessage;
     protected String currentEmail;
